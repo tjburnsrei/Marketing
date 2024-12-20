@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Flowchart</title>
+    <title>Marketing</title>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
-        mermaid.initialize({ startOnLoad: true, theme: "default" });
+        mermaid.initialize({ startOnLoad: true, theme: "default", flowchart: { useMaxWidth: false } });
     </script>
 </head>
 <body>
     <h1>Interactive Flowchart</h1>
     <div class="mermaid">
-        %% Config block for layout
-        %% Use your provided Mermaid.js chart code here
-        config:
-          layout: fixed
-        ---
         flowchart TD
             A["Viewed a Journey Page"] --> F["Zapier integration"]
             AF["Calendly"] --> F
@@ -51,8 +46,6 @@
             AD --> n16
             n17 --> n7
             n18 --> n19["Reach out 'are you sure'"]
-            n7@{ shape: rect}
-            n11@{ shape: rounded}
             style O fill:#FFD600
             style V fill:#FFD600
             style n7 fill:#FFD600
@@ -61,4 +54,3 @@
     </div>
 </body>
 </html>
-

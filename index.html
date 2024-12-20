@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Mermaid Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        flowchart TD
+        A["Viewed a Journey Page"] --> F["Zapier integration"]
+        F --> O["Enter the CRM. Cultivate"]
+        O --> V["Engaged Lead Pipeline- Close"]
+        V --> X["Private Credit Pipeline"]
+        click A "https://example.com/details-journey-page" "View KPIs for this stage"
+        click F "https://example.com/zapier-details" "Learn about Zapier integration"
+        click O "https://example.com/crm-cultivation" "CRM cultivation insights"
+        click V "https://example.com/lead-pipeline" "Engaged Lead Pipeline overview"
+    </div>
+</body>
+</html>

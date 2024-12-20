@@ -3,23 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Mermaid Chart</title>
+    <title>Interactive Flowchart</title>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
-        mermaid.initialize({ startOnLoad: true });
+        mermaid.initialize({ startOnLoad: true, theme: "default" });
     </script>
 </head>
 <body>
+    <h1>Interactive Flowchart</h1>
     <div class="mermaid">
+        %% Config block for layout
+        %% Use your provided Mermaid.js chart code here
+        config:
+          layout: fixed
+        ---
         flowchart TD
-        A["Viewed a Journey Page"] --> F["Zapier integration"]
-        F --> O["Enter the CRM. Cultivate"]
-        O --> V["Engaged Lead Pipeline- Close"]
-        V --> X["Private Credit Pipeline"]
-        click A "https://example.com/details-journey-page" "View KPIs for this stage"
-        click F "https://example.com/zapier-details" "Learn about Zapier integration"
-        click O "https://example.com/crm-cultivation" "CRM cultivation insights"
-        click V "https://example.com/lead-pipeline" "Engaged Lead Pipeline overview"
+            A["Viewed a Journey Page"] --> F["Zapier integration"]
+            AF["Calendly"] --> F
+            G["Filled out a Lead Capture Form"] --> H["Subscribe on website (or manual entry into website)"] & I["Lead magnet: DD checklist, Ebook"] & K["Joined CFP"]
+            I --> L["Email resource. Include CTA"]
+            L --> N["Enter welcome series (first email sent immediately)"]
+            F --> O["Enter the CRM. Cultivate"]
+            N --> O
+            U["Bottom of email CTA- related to post, linking to debt or equity"] --> V["Engaged Lead Pipeline- Close"]
+            V --> X["Private Credit Pipeline"] & Y["'All' Pipeline"] & n6["Equity Pipeline"]
+            W["Disengaged. Zero opens in last 90 days. Send 'Should we remove you from the email list?' Type email, or call"] --> n1["No response or negative response"] & n3["Positive Response"]
+            X --> AA["Tag as Interested in Private Credit-- send mktg emails on credit, call, text, etc."]
+            Y --> AB["Tag as Interested in Equity-- send mktg emails on credit, call, text, etc."] & AA
+            AA --> AC["Continue nurturing while being tracked"]
+            AB --> AD["Continue nurturing while being tracked"]
+            T["Weekly short email series derived from other longform content (EBook, podcasts, linkedin posts, etc.)"] --> U & W & n4["Unsubscribe- offer menu"] & n8["Link to longer form post"]
+            O --> n10["Tag Contact based on where they came from and what info we have about them"]
+            n1 --> n2["Remove from CRM"]
+            n3 --> V
+            n4 --> n5["Unsub from all"] & n9["Only receive New Deals"] & n18["Current investor- only deal updates"]
+            n6 --> AB
+            n7["Connect"] --> G & A & AF
+            H --> N
+            K --> N
+            n10 --> T
+            n11["Attract"] --> n12["SEO- website, article, etc."] & n13["Found on Podcast"] & n14["Linkedin"] & n15["Other Social- Twitter, Instagram, TikTok, Youtube, Spotify"] & n17["Referral"]
+            n12 --> n7
+            n13 --> n7
+            n14 --> n7
+            n15 --> n7
+            AC --> n16["Investor- Customer Service"]
+            AD --> n16
+            n17 --> n7
+            n18 --> n19["Reach out 'are you sure'"]
+            n7@{ shape: rect}
+            n11@{ shape: rounded}
+            style O fill:#FFD600
+            style V fill:#FFD600
+            style n7 fill:#FFD600
+            style n11 fill:#FFD600
+            style n16 color:#2962FF,fill:#FFD600
     </div>
 </body>
 </html>
+
